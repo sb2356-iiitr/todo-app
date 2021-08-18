@@ -21,14 +21,9 @@ const App = () => {
           <button>Go</button>
         </form>
         {/* For list of events */}
-        <ul>
-          <li>
-            <span>Learn React</span>
-            <button>Edit</button>
-            <button>Delete</button>
-          </li>
-          <li>
-            <span>Learn React</span>
+        <ul className="allTodos">
+          <li className="singleTodo">
+            <span className="todoText">Learn React</span>
             <button>Edit</button>
             <button>Delete</button>
           </li>
