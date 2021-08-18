@@ -1,24 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./App.css"
 
 const App = () => {
-  const arr = [
-    {
-      id: 1,
-      name: 'a',
-    },
-    {
-      id: 2,
-      name: 'b',
-    },
-  ]
+  const [todo, setTodo] = useState("")
+  const [todos, setTodos] = useState([])
+
+  const handleSubmit = (e) => {
+    /* prevent refreshing of page */
+    e.preventDefault();
+
+    if (todo !== "") {
+      /*... (spread operator), appends to the list */
+      setTodos([{id:`${todo}-${Date.now()}`, todo}, ...todos])
+    }
+  }
+
   return (
     <div className="App">
       <div className="container">
         <h1>ToDo List App</h1>
-        <form className="todoForm">
-          <input type="text" />
-          <button>Go</button>
+        <form className="todoForm" onSubmit={handleSubmit}>
+          <input type="text" onChange={(e) => setTodo(e.target.value)}/>
+          <button type="submit">Go</button>
         </form>
         {/* For list of events */}
         <ul className="allTodos">

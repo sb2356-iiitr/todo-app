@@ -53,3 +53,7 @@ button {
   width: 400px;
   align-items: center;
 }
+
+.todoText {
+  flex: 1;
+}
